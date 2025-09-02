@@ -12,6 +12,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        body {
+            overflow-x: hidden;
+        }
         /* These CSS properties are not available as direct Tailwind classes, so they are kept here. */
         .card-container {
             perspective: 1000px;
@@ -91,11 +94,11 @@
                 <!-- Card 2 -->
                 <div class="card-container group relative w-full h-[250px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
-                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#73CBC4] flex flex-col justify-center items-center text-center p-10">
+                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#73CBC4] flex flex-col justify-center items-center text-center p-5">
                             <img src="../assets/JavaScriptLogo.png" alt="Card 2 Front" class=" object-cover h-4/6 w-full">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-3xl font-bold mb-4">JavaScript</h1>
+                            <h1 class="text-2xl font-bold mb-4">JavaScript</h1>
                         </div>
                     </div>
                 </div>
@@ -151,7 +154,7 @@
                 <!-- Card 7 -->
                 <div class="card-container group relative w-full h-[250px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
-                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#73CBC4] flex flex-col justify-center items-center text-center p-10">
+                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#73CBC4] flex flex-col justify-center items-center text-center p-5">
                             <img src="../assets/SwiftUILogo.png" alt="Card 7 Front" class=" object-cover h-4/6 w-full">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
@@ -164,7 +167,7 @@
                 <!-- Card 8 -->
                 <div class="card-container group relative w-full h-[250px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
-                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#C66E33] flex flex-col justify-center items-center text-center p-10">
+                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#C66E33] flex flex-col justify-center items-center text-center p-5">
                             <img src="../assets/ThreeJSLogo.png" alt="Card 8 Front" class=" object-cover h-4/6 w-full">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
