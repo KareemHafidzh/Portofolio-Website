@@ -76,11 +76,11 @@ const numFish = 80; // The number of fish to generate
 
 // Array of placeholder fish image URLs
 const fishImages = [
-    "/assets/1.png",
-    "/assets/2.png",
-    "/assets/3.png",
-    "/assets/4.png",
-    "/assets/5.png"
+    "../assets/1.png",
+    "../assets/2.png",
+    "../assets/3.png",
+    "../assets/4.png",
+    "../assets/5.png"
 ];
 
 function createRandomFish() {
