@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         4: {
             id: "project4",
             title: "WeatherApp",
-            image: "",
+            image: "/assets/WeatherApp.png",
             description: "An iOS application that provides real-time weather information for various locations. Built with UIKit and integrated with a weather API, the app features a sleek design and user-friendly interface. Users can search for cities, view current weather conditions, and access a 7-day forecast. This project demonstrates my ability to work with APIs, manage state, and create responsive layouts in UIKit.",
             githubLink: "https://github.com/KareemHafidzh/WeatherApp-s.git"
         }
