@@ -38,38 +38,80 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById("modal-title");
     const modalDescription = document.getElementById("modal-description");
     const githubLinkBtn = document.getElementById("github-link-btn");
+    const body = document.body;
+    const html = document.documentElement; 
+
+    const fishContainerForModal = document.getElementById('fish-container');
+    const fishWrapper = fishContainerForModal ? fishContainerForModal.parentElement : null;
+
+    let scrollPosition = 0;
+
+
+    function openModal(project) {
+        if (project) {
+            // Populate modal with project data
+            modalTitle.textContent = project.title;
+            modalImage.src = project.image;
+            modalDescription.textContent = project.description;
+            githubLinkBtn.href = project.githubLink;
+            scrollPosition = window.pageYOffset;
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+            body.style.overflow = 'hidden';
+            body.style.position = 'fixed';
+            body.style.top = `-${scrollPosition}px`;
+            body.style.width = '100%';
+            body.style.paddingRight = `${scrollbarWidth}px`;
+
+            if (fishWrapper) {
+                fishWrapper.style.overflowX = 'hidden';
+            }
+            
+            projectModal.classList.remove('hidden', 'opacity-0'); 
+            projectModal.classList.add('flex', 'opacity-100');
+        }
+    }
+
+    function closeModal() {
+        projectModal.classList.remove('flex', 'opacity-100');
+        projectModal.classList.add('hidden', 'opacity-0');
+
+        body.style.overflow = '';
+        body.style.position = '';
+        body.style.top = '';
+        body.style.width = '';
+        body.style.paddingRight = '';
+
+        window.scrollTo(0, scrollPosition);
+
+        if (fishWrapper) {
+            fishWrapper.style.overflowX = 'visible';
+        }
+    }
+    
+    // --- Event Listeners ---
     
     // Event listener for clicking on a project card
     document.querySelectorAll('[data-project-id]').forEach(card => {
         card.addEventListener('click', () => {
             const projectId = card.getAttribute('data-project-id');
             const project = projectsData[projectId];
-            
-            if (project) {
-                modalTitle.textContent = project.title;
-                modalImage.src = project.image;
-                modalDescription.textContent = project.description;
-                githubLinkBtn.href = project.githubLink;
-                projectModal.classList.remove('hidden', 'opacity-0'); // <-- Perbaikan di sini
-                projectModal.classList.add('flex', 'opacity-100');     // <-- Perbaikan di sini
-            }
+            openModal(project); // Use the refactored function
         });
     });
     
     // Event listener for closing the modal
-    closeModalBtn.addEventListener('click', () => {
-        projectModal.classList.remove('flex', 'opacity-100'); // <-- Perbaikan di sini
-        projectModal.classList.add('hidden', 'opacity-0');     // <-- Perbaikan di sini
-    });
+    closeModalBtn.addEventListener('click', closeModal); // Use the refactored function
     
     // Close modal when clicking outside of it
     projectModal.addEventListener('click', (e) => {
         if (e.target === projectModal) {
-            projectModal.classList.remove('flex', 'opacity-100'); // <-- Perbaikan di sini
-            projectModal.classList.add('hidden', 'opacity-0');     // <-- Perbaikan di sini
+            closeModal(); // Use the refactored function
         }
     });
 });
+
+// === BAGIAN KODE IKAN (TIDAK ADA PERUBAHAN, SUDAH BENAR) ===
 
 const fishContainer = document.getElementById('fish-container');
 const numFish = 80; // The number of fish to generate
@@ -94,17 +136,18 @@ function createRandomFish() {
     
     // Set random size
     const size = Math.random() * 70 + 70; // Between 50 and 100
-    fishImg.classList.add(`w-[${size}px]`, `h-[${size/2}px]`);
+    // NOTE: Tailwind JIT compiler might not see dynamic classes like this.
+    // It's better to use inline styles for dynamic values.
+    fishImg.style.width = `${size}px`;
+    fishImg.style.height = `${size / 2}px`;
     
     fishDiv.appendChild(fishImg);
     
     // Give each fish a unique ID and class for the animation
     const fishId = `fish-${Math.random().toString(36).substring(2, 9)}`;
     fishDiv.id = fishId;
-    fishDiv.classList.add('fish');
+    fishDiv.classList.add('fish', 'absolute');
     
-    // Set initial random position and add Tailwind classes
-    fishDiv.classList.add('absolute');
     fishDiv.style.top = `${Math.random() * document.body.scrollHeight}px`;
     
     // Randomly decide if the fish swims left-to-right or right-to-left
@@ -121,17 +164,21 @@ function createRandomFish() {
     const delay = Math.random() * 10; // Between 0s and 10s
     
     // Generate keyframe values to ensure the fish swims completely across the screen
-    const transform0 = isLeftToRight ? `translateX(0)` : `translateX(0)`;
     const transform100 = isLeftToRight ? `translateX(${window.innerWidth + size}px)` : `translateX(-${window.innerWidth + size}px)`;
     
     const keyframes = `@keyframes ${fishId}-swim {
-                from { transform: ${transform0}; }
-                to { transform: ${transform100}; }
-            }`;
+        from { transform: translateX(0); }
+        to { transform: ${transform100}; }
+    }`;
     
-    // Add keyframes to the document's stylesheet
-    const styleSheet = document.head.querySelector('style');
-    styleSheet.innerText += keyframes;
+    // Find or create a style element to hold the keyframes
+    let styleSheet = document.getElementById('fish-animations');
+    if (!styleSheet) {
+        styleSheet = document.createElement('style');
+        styleSheet.id = 'fish-animations';
+        document.head.appendChild(styleSheet);
+    }
+    styleSheet.sheet.insertRule(keyframes, styleSheet.sheet.cssRules.length);
     
     // Apply the unique animation
     fishDiv.style.animation = `${fishId}-swim ${duration}s linear ${delay}s infinite`;
@@ -144,3 +191,4 @@ function createRandomFish() {
 for (let i = 0; i < numFish; i++) {
     createRandomFish();
 }
+

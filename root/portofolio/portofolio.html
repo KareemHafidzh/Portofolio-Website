@@ -15,7 +15,6 @@
         body {
             overflow-x: hidden;
         }
-        /* These CSS properties are not available as direct Tailwind classes, so they are kept here. */
         .card-container {
             perspective: 1000px;
         }
@@ -40,7 +39,7 @@
             25% { transform: translateX(25vw) translateY(20px) rotate(5deg); }
             50% { transform: translateX(50vw) translateY(-10px) rotate(-5deg); }
             75% { transform: translateX(75vw) translateY(30px) rotate(5deg); }
-            100% { transform: translateX(100vw) translateY(0) rotate(0deg); }
+            100% { transform: translateX(110vw) translateY(0) rotate(0deg); }
         }
         
         /* Custom classes to apply the keyframes with specific timings */
@@ -55,19 +54,23 @@
         .animate-swim-across-fast {
             animation: swim-across 20s ease-out infinite;
         }
+
+        .modal-open {
+            overflow: hidden;
+        }
     </style>
 </head>
-<body class="bg-gray-100 bg-[linear-gradient(to_right,#ccc_1px,transparent_1px),linear-gradient(to_bottom,#ccc_1px,transparent_1px)] bg-[size:20px_20px]">
+<body class="bg-gray-100 bg-[linear-gradient(to_right,#ccc_1px,transparent_1px),linear-gradient(to_bottom,#ccc_1px,transparent_1px)] bg-[size:20px_20px] lg:overflow-x-hidden md:overflow-x-hidden">
     
     <div class="absolute inset-0 z-[-1]">
         <div id="fish-container" class="absolute inset-0"></div>
     </div>
     
-    <div class="flex p-10 z-10">
+    <div class="flex p-10 md:gap-5">
         <div class="w-1/2">
-            <h1 class="text-6xl font-bold font-pacifico">Kareem Abdul Hafidzh</h1>
-            <h3 class="text-4xl mt-[20px] ">Assistant Laboratory | IOS Developer</h3>
-            <p class="text-2xl mt-[20px] text-justify">
+            <h1 class="text-6xl font-bold font-pacifico md:text-center">Kareem Abdul Hafidzh</h1>
+            <h3 class="lg:text-3xl mt-[20px] md:text-center md:text-xl ">Assistant Laboratory | IOS Developer</h3>
+            <p class="lg:text-2xl mt-[20px] text-justify md:text-sm">
                 With a foundation in technology that began in junior high with HTML, CSS, and JavaScript, 
                 I am a dedicated Software Engineering student at BINUS University. My knowledge was solidified 
                 through my vocational school studies and a 7-month internship, where I gained hands-on experience in 
@@ -78,100 +81,100 @@
             <h3 class="text-4xl mt-[40px] text-center font-bold font-pacifico">My Skills</h3>
             
             <!-- Card Grid Container -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl pt-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl pt-10 md:gap-4">
                 <!-- Card 1 -->
-                <div class="card-container group relative w-full h-[250px]">
+                <div class="card-container group relative w-full lg:h-[250px] md:h-[150px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#EF7671] flex flex-col justify-center items-center text-center">
-                            <img src="../assets/swiftImage.png" alt="Card 1 Front" class=" object-cover h-4/6 w-full">
+                            <img src="../assets/swiftImage.png" alt="Card 1 Front" class=" object-cover h-full w-full md:m-[10px]">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-3xl font-bold mb-4">Swift</h1>
+                            <h1 class="lg:text-3xl font-bold mb-4 md:text-3sm">Swift</h1>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Card 2 -->
-                <div class="card-container group relative w-full h-[250px]">
+                <div class="card-container group relative w-full lg:h-[250px] md:h-[150px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
-                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#73CBC4] flex flex-col justify-center items-center text-center p-5">
-                            <img src="../assets/JavaScriptLogo.png" alt="Card 2 Front" class=" object-cover h-4/6 w-full">
+                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#73CBC4] flex flex-col justify-center items-center text-center lg:p-5 md:p-2 ">
+                            <img src="../assets/JavaScriptLogo.png" alt="Card 2 Front" class=" object-cover h-full w-full md:m-[10px] rounded-xl">
                         </div>
-                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-2xl font-bold mb-4">JavaScript</h1>
+                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center lg:p-8 [transform:rotateY(180deg)]">
+                            <h1 class="lg:text-3xl font-bold mb-4 md:text-3sm">JavaScript</h1>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Card 3 -->
-                <div class="card-container group relative w-full h-[250px]">
+                <div class="card-container group relative w-full lg:h-[250px] md:h-[150px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#FCE680] flex flex-col justify-center items-center text-center">
                             <img src="../assets/pythonLogo.png" alt="Card 3 Front" class=" object-cover h-4/6 w-full">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-3xl font-bold mb-4">Python</h1>
+                            <h1 class="lg:text-3xl font-bold mb-4 md:text-3sm">Python</h1>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Card 4 -->
-                <div class="card-container group relative w-full h-[250px]">
+                <div class="card-container group relative w-full lg:h-[250px] md:h-[150px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#F19297] flex flex-col justify-center items-center text-center">
                             <img src="../assets/JavaLogo.png" alt="Card 4 Front" class=" object-cover h-4/6 w-full">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-3xl font-bold mb-4">Java</h1>
+                            <h1 class="lg:text-3xl font-bold mb-4 md:text-3sm">Java</h1>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Card 5 -->
-                <div class="card-container group relative w-full h-[250px]">
+                <div class="card-container group relative w-full lg:h-[250px] md:h-[150px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
-                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#B6E4D1] flex flex-col justify-center items-center text-center p-10">
+                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#B6E4D1] flex flex-col justify-center items-center text-center lg:p-10 md:p-2">  
                             <img src="../assets/TailwindLogo.png" alt="Card 5 Front" class=" object-cover h-auto w-full">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-3xl font-bold mb-4">Tailwind CSS</h1>
+                            <h1 class="lg:text-3xl font-bold mb-4 md:text-esm">Tailwind CSS</h1>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Card 6 -->
-                <div class="card-container group relative w-full h-[250px]">
+                <div class="card-container group relative w-full lg:h-[250px] md:h-[150px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#FCE680] flex flex-col justify-center items-center text-center">
                             <img src="../assets/SQLLogo.png" alt="Card 6 Front" class=" object-cover h-4/6 w-full">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-3xl font-bold mb-4">SQL</h1>
+                            <h1 class="lg:text-3xl font-bold mb-4 md:text-3sm">SQL</h1>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Card 7 -->
-                <div class="card-container group relative w-full h-[250px]">
+                <div class="card-container group relative w-full lg:h-[250px] md:h-[150px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
-                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#73CBC4] flex flex-col justify-center items-center text-center p-5">
-                            <img src="../assets/SwiftUILogo.png" alt="Card 7 Front" class=" object-cover h-4/6 w-full">
+                        <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#73CBC4] flex flex-col justify-center items-center text-center ">
+                            <img src="../assets/SwiftUILogo.png" alt="Card 7 Front" class=" object-cover h-full w-full md:m-[40px]">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-3xl font-bold mb-4">SwiftUI</h1>
+                            <h1 class="lg:text-3xl font-bold mb-4 md:text-3sm">SwiftUI</h1>
                         </div>
                     </div>
                 </div>
                 
                 
                 <!-- Card 8 -->
-                <div class="card-container group relative w-full h-[250px]">
+                <div class="card-container group relative w-full lg:h-[250px] md:h-[150px]">
                     <div class="card absolute w-full h-full transition-transform duration-500 ease-in-out [transform:rotateY(0deg)] group-hover:[transform:rotateY(180deg)] ">
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-[#C66E33] flex flex-col justify-center items-center text-center p-5">
                             <img src="../assets/ThreeJSLogo.png" alt="Card 8 Front" class=" object-cover h-4/6 w-full">
                         </div>
                         <div class="card-face absolute w-full h-full rounded-3xl shadow-xl bg-slate-800 text-white flex flex-col justify-center items-center text-center p-8 [transform:rotateY(180deg)]">
-                            <h1 class="text-3xl font-bold mb-4">Three.js</h1>
+                            <h1 class="lg:text-3xl font-bold mb-4 md:text-3sm">Three.js</h1>
                         </div>
                     </div>
                 </div>
@@ -182,26 +185,26 @@
         <!-- Right Side - Photo and Contact Info -->
         <div id="scene-container" class="w-1/2 flex justify-center">
             <div class="">
-                <div class="group relative inline-block rotate-2 rounded-b-[10px] rounded-t-[30px] p-[50px] pb-[120px] 
+                <div class="group relative inline-block rotate-2 rounded-b-[10px] rounded-t-[30px] lg:p-[50px] lg:pb-[120px] md:p-[30px] md:pb-[100px]
                 bg-[linear-gradient(145deg,_#f5f5dc_0%,_#e6e6fa_100%)] 
                 shadow-[0_40px_80px_rgba(0,0,0,0.4),_inset_0_0_0_6px_#d2691e,_inset_6px_6px_20px_rgba(0,0,0,0.1),_inset_-6px_-6px_20px_rgba(255,255,255,0.8)] 
                 transition-all duration-[400ms] ease-in-out hover:rotate-0 hover:scale-[1.06] 
                 hover:shadow-[0_60px_120px_rgba(0,0,0,0.5),_inset_0_0_0_6px_#d2691e,_inset_6px_6px_30px_rgba(0,0,0,0.15),_inset_-6px_-6px_30px_rgba(255,255,255,0.9)] 
                 
-                before:absolute before:left-[20px] before:right-[20px] before:top-[20px] before:h-4 before:rounded-lg 
+                before:absolute before:left-[20px] before:right-[20px] before:lg:top-[20px] before:lg:h-4 before:rounded-lg before:md:top-[15px] before:md:h-2
                 before:content-[''] before:bg-[linear-gradient(90deg,_#ff6b6b_0%,_#ff6b6b_20%,_#4ecdc4_20%,_#4ecdc4_40%,_#ffe66d_40%,_#ffe66d_60%,_#a8e6cf_60%,_#a8e6cf_80%,_#ff8b94_80%,_#ff8b94_100%)] 
                 before:animate-[colorStrip_8s_ease-in-out_infinite] 
                 
-                after:absolute after:bottom-[15px] after:left-1/2 after:-translate-x-1/2 after:font-mono after:text-[15px] 
+                after:absolute after:bottom-[15px] after:left-1/2 after:-translate-x-1/2 after:font-mono after:lg:text-[15px] after:md:text-[10px] 
                 after:font-bold after:tracking-[2px] after:text-[#8b4513] after:text-shadow-retro after:text-center
-                after:content-['If_you_can_change_your_mind,_you_can_change_your_life_-_William_James_'] after:whitespace-pre-line">
+                after:content-['If_you_can_change_your_mind,_you_can_change_your_life_-_William_James_']">
                 
-                <div class="absolute h-10 w-10 rounded-full bg-[radial-gradient(circle,_#d2691e_30%,_transparent_70%)] opacity-60 top-[30px] left-[30px]"></div>
-                <div class="absolute h-10 w-10 rounded-full bg-[radial-gradient(circle,_#d2691e_30%,_transparent_70%)] opacity-60 top-[30px] right-[30px]"></div>
-                <div class="absolute h-10 w-10 rounded-full bg-[radial-gradient(circle,_#d2691e_30%,_transparent_70%)] opacity-60 bottom-[100px] left-[30px]"></div>
-                <div class="absolute h-10 w-10 rounded-full bg-[radial-gradient(circle,_#d2691e_30%,_transparent_70%)] opacity-60 bottom-[100px] right-[30px]"></div>
-                
-                <img class="photo placeholder h-[440px] w-[440px] rounded-[16px] border-4 border-white object-cover 
+                <div class="absolute lg:h-10 lg:w-10 rounded-full bg-[radial-gradient(circle,_#d2691e_30%,_transparent_70%)] opacity-60 lg:top-[30px] lg:left-[30px] md:h-5 md:w-5 md:top-[25px] md:left-[25px]"></div>
+                <div class="absolute lg:h-10 lg:w-10 rounded-full bg-[radial-gradient(circle,_#d2691e_30%,_transparent_70%)] opacity-60 lg:top-[30px] lg:right-[30px] md:h-5 md:w-5 md:top-[25px] md:right-[25px]"></div>
+                <div class="absolute lg:h-10 lg:w-10 rounded-full bg-[radial-gradient(circle,_#d2691e_30%,_transparent_70%)] opacity-60 lg:bottom-[100px] lg:left-[30px] md:h-5 md:w-5 md:bottom-[95px] md:left-[25px]"></div>
+                <div class="absolute lg:h-10 lg:w-10 rounded-full bg-[radial-gradient(circle,_#d2691e_30%,_transparent_70%)] opacity-60 lg:bottom-[100px] lg:right-[30px] md:h-5 md:w-5 md:bottom-[95px] md:right-[25px]"></div>
+
+                <img class="photo placeholder lg:h-[440px] lg:w-[440px] rounded-[16px] border-4 border-white object-cover md:h-[220px] md:w-[220px]
                 shadow-[0_16px_40px_rgba(0,0,0,0.3),_inset_0_0_0_2px_rgba(0,0,0,0.1)] 
                 transition-all duration-300 ease-in-out 
                 group-hover:shadow-[0_24px_60px_rgba(0,0,0,0.4),_inset_0_0_0_2px_rgba(0,0,0,0.2)]" 
@@ -278,8 +281,8 @@
     </div>
     
     <!-- Project Description Modal -->
-    <div id="project-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 transition-opacity duration-300 opacity-0 hidden">
-        <div class="bg-white rounded-3xl shadow-xl w-full max-w-2xl relative">
+    <div id="project-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 hidden overflow-x-hidden">
+        <div class="bg-white rounded-3xl shadow-xl w-full max-w-lg md:max-w-xl lg:max-w-2xl relative">
             <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200">
                 <i class="fa-solid fa-xmark text-2xl"></i>
             </button>
